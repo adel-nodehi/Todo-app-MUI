@@ -1,5 +1,23 @@
+import Container from "@mui/material/Container";
+import Typography from "@mui/material/Typography";
+
+import TodoList from "../components/TodoList";
+
 function HomePage() {
-  return <div>HOME PAGE</div>;
+  return (
+    <Container>
+      <Typography
+        variant="h4"
+        component="h1"
+        gutterBottom
+        sx={{ textAlign: "center", pt: 4 }}
+      >
+        Taskes
+      </Typography>
+
+      <TodoList />
+    </Container>
+  );
 }
 
 export default HomePage;

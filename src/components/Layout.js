@@ -44,6 +44,7 @@ function Layout({ children }) {
           >
             {routes.map((route) => (
               <ListItemButton
+                key={route.title}
                 onClick={() => navigate(route.path)}
                 sx={[
                   location.pathname === route.path && { bgcolor: "whitesmoke" },
