@@ -1,4 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+import { Provider } from "react-redux";
+import { store } from "./store";
+
 import HomePage from "./pages/HomePage";
 import AddTask from "./pages/AddTask";
 import EditTask from "./pages/EditTask";
@@ -6,15 +10,17 @@ import Layout from "./components/Layout";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Layout>
-        <Routes>
-          <Route index element={<HomePage />} />
-          <Route path="/add" element={<AddTask />} />
-          <Route path="/edit" element={<EditTask />} />
-        </Routes>
-      </Layout>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Layout>
+          <Routes>
+            <Route index element={<HomePage />} />
+            <Route path="/add" element={<AddTask />} />
+            <Route path="/edit" element={<EditTask />} />
+          </Routes>
+        </Layout>
+      </BrowserRouter>
+    </Provider>
   );
 }
 
