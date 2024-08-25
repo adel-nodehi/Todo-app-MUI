@@ -42,7 +42,7 @@ function TodoItem({ todo }) {
         }}
       >
         <CardMedia
-          sx={{ width: "12rem" }}
+          sx={{ width: "12rem", flexShrink: 0 }}
           image={todo.imgUrl}
           title="green iguana"
         />
@@ -68,9 +68,7 @@ function TodoItem({ todo }) {
               label={string}
               variant="filled"
               color={
-                (timeStatus === "today" && timeLeft >= 14 && "success") ||
-                (timeStatus === "today" && timeLeft >= 4 && "warning") ||
-                (timeStatus === "today" && "error") ||
+                (timeStatus === "today" && "success") ||
                 (timeStatus === "future" && "info") ||
                 (timeStatus === "past" && "default")
               }
@@ -100,9 +98,9 @@ function TodoItem({ todo }) {
           variant="determinate"
           value={100 - (timeLeft * 100) / 24}
           color={
-            (timeStatus === "today" && timeLeft >= 14 && "success") ||
-            (timeStatus === "today" && timeLeft >= 4 && "warning") ||
-            (timeStatus === "today" && "error")
+            (timeLeft >= 14 && "success") ||
+            (timeLeft >= 4 && "warning") ||
+            "error"
           }
           sx={{ height: 6 }}
         />
