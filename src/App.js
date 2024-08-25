@@ -16,7 +16,7 @@ function App() {
           <Routes>
             <Route index element={<HomePage />} />
             <Route path="/add" element={<AddTask />} />
-            <Route path="/edit" element={<EditTask />} />
+            <Route path="/edit/:id" element={<EditTask />} />
           </Routes>
         </Layout>
       </BrowserRouter>
