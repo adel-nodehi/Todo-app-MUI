@@ -10,6 +10,7 @@ import HomePage from "./pages/HomePage";
 import AddTask from "./pages/AddTask";
 import EditTask from "./pages/EditTask";
 import Layout from "./components/Layout";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
               <Route index element={<HomePage />} />
               <Route path="/add" element={<AddTask />} />
               <Route path="/edit/:id" element={<EditTask />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </Layout>
         </BrowserRouter>
