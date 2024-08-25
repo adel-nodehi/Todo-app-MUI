@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { deleteTodo, toggleCompleted } from "../todoSlice";
 
@@ -16,8 +17,8 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 
 function TodoItem({ todo }) {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
-  // const { completed } = useSelector((state) => state.todo);
 
   return (
     <Card
@@ -59,7 +60,10 @@ function TodoItem({ todo }) {
             <DeleteIcon />
           </IconButton>
 
-          <IconButton color="primary">
+          <IconButton
+            color="primary"
+            onClick={() => navigate(`/edit/${todo.id}`)}
+          >
             <EditIcon />
           </IconButton>
         </CardActions>
