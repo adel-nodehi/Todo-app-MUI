@@ -35,8 +35,6 @@ const todoSlice = createSlice({
           deadLine: action.payload.deadLine,
         };
 
-        console.log(data);
-
         state.push(data);
         dbServer.addData(data);
       },
@@ -61,6 +59,7 @@ const todoSlice = createSlice({
             details: action.description,
             isCompleted: action.isCompleted,
             imgUrl: action.imgUrl || DEFAULT_IMG_URL,
+            deadLine: action.deadLine,
           },
         };
       },
@@ -75,6 +74,7 @@ const todoSlice = createSlice({
             details: action.payload.details,
             isCompleted: action.payload.isCompleted,
             imgUrl: action.payload.imgUrl,
+            deadLine: action.payload.deadLine,
           };
 
           dbServer.updateItem(todo.id, { ...updatedTodo });
