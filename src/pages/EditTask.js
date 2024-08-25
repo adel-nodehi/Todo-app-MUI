@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
+import dayjs from "dayjs";
 
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
@@ -9,6 +10,8 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+
 import { editTodo } from "../todoSlice";
 
 function EditTask() {
@@ -23,14 +26,23 @@ function EditTask() {
   const [description, setDescription] = useState(curTodo.details);
   const [imgUrl, setImgUrl] = useState(curTodo.imgUrl);
   const [isCompleted, setIsCompleted] = useState(curTodo.completed);
+  const [deadLine, setDeadLine] = useState(dayjs());
 
   function handleSubmit(e) {
     e.preventDefault();
 
     if (!title || !description) return;
+    if (deadLine === null || isNaN(deadLine.$D)) return;
 
     dispatch(
-      editTodo({ id: curTodo.id, title, description, isCompleted, imgUrl })
+      editTodo({
+        id: curTodo.id,
+        title,
+        description,
+        isCompleted,
+        imgUrl,
+        deadLine: deadLine.format("MM/DD/YYYY"),
+      })
     );
 
     navigate("/");
@@ -84,6 +96,14 @@ function EditTask() {
           <ToggleButton value="true">COMPLETED</ToggleButton>
           <ToggleButton value="false">NOT COMPLETED</ToggleButton>
         </ToggleButtonGroup>
+
+        <DatePicker
+          label="DeadLine *"
+          defaultValue={deadLine}
+          onChange={(newValue) => setDeadLine(newValue)}
+          disablePast
+          sx={{ mb: 2 }}
+        />
 
         <TextField
           value={imgUrl}
