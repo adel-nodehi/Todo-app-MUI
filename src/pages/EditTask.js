@@ -6,13 +6,13 @@ import dayjs from "dayjs";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 
 import { editTodo } from "../todoSlice";
+import Input from "../components/Input";
 
 function EditTask() {
   const navigate = useNavigate();
@@ -65,7 +65,7 @@ function EditTask() {
           Edit Task
         </Typography>
 
-        <TextField
+        <Input
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           label="Title"
@@ -74,7 +74,7 @@ function EditTask() {
           sx={{ mb: 2 }}
         />
 
-        <TextField
+        <Input
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           label="Description"
@@ -105,7 +105,7 @@ function EditTask() {
           sx={{ mb: 2 }}
         />
 
-        <TextField
+        <Input
           value={imgUrl}
           onChange={(e) => setImgUrl(e.target.value)}
           label="Picture URL"
