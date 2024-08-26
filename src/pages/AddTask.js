@@ -5,10 +5,11 @@ import dayjs from "dayjs";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import { addTodo } from "../todoSlice";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import Input from "../components/Input";
+
+import { addTodo } from "../todoSlice";
 
 function AddTask() {
   const dispatch = useDispatch();
@@ -57,7 +58,7 @@ function AddTask() {
           Add Task
         </Typography>
 
-        <TextField
+        <Input
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           label="Title"
@@ -66,7 +67,7 @@ function AddTask() {
           sx={{ mb: 2 }}
         />
 
-        <TextField
+        <Input
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           label="Description"
@@ -85,7 +86,7 @@ function AddTask() {
           sx={{ mb: 2 }}
         />
 
-        <TextField
+        <Input
           value={imgUrl}
           onChange={(e) => setImgUrl(e.target.value)}
           label="Picture URL"
