@@ -8,23 +8,13 @@ import List from "@mui/material/List";
 import ListItemButton from "@mui/material/ListItemButton";
 import Avatar from "@mui/material/Avatar";
 import Tooltip from "@mui/material/Tooltip";
+import Fab from "@mui/material/Fab";
 
 import PersonIcon from "@mui/icons-material/Person";
-
-const routes = [
-  {
-    title: "Home",
-    path: "/",
-  },
-  {
-    title: "Add Task",
-    path: "/add",
-  },
-];
+import AddIcon from "@mui/icons-material/Add";
 
 function Layout({ children }) {
   const navigate = useNavigate();
-  const location = useLocation();
 
   return (
     <Box>
@@ -35,25 +25,12 @@ function Layout({ children }) {
             color: "text.primary",
             display: "flex",
             justifyContent: "space-between",
+            position: "relative",
           }}
         >
-          <List
-            sx={{
-              display: "flex",
-            }}
-          >
-            {routes.map((route) => (
-              <ListItemButton
-                key={route.title}
-                onClick={() => navigate(route.path)}
-                sx={[
-                  location.pathname === route.path && { bgcolor: "whitesmoke" },
-                ]}
-              >
-                <Typography>{route.title}</Typography>
-              </ListItemButton>
-            ))}
-          </List>
+          <ListItemButton sx={{ flexGrow: 0 }} onClick={() => navigate("/")}>
+            <Typography>Home</Typography>
+          </ListItemButton>
 
           <Tooltip
             title="Open Setting"
@@ -84,6 +61,18 @@ function Layout({ children }) {
       </AppBar>
 
       {children}
+
+      <Fab
+        onClick={() => navigate("/add")}
+        color="primary"
+        sx={{
+          position: "absolute",
+          right: "2rem",
+          bottom: "2rem",
+        }}
+      >
+        <AddIcon />
+      </Fab>
     </Box>
   );
 }
