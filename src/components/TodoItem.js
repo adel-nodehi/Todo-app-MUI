@@ -56,7 +56,7 @@ function TodoItem({ todo }) {
               )}
             </IconButton>
 
-            <Typography gutterBottom variant="h5" component="div">
+            <Typography gutterBottom variant="h5" component="h2">
               {todo.title}
             </Typography>
 
@@ -93,6 +93,7 @@ function TodoItem({ todo }) {
           </CardActions>
         </Box>
       </Box>
+
       {timeStatus === "today" && (
         <LinearProgress
           variant="determinate"
