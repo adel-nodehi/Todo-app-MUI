@@ -5,9 +5,10 @@ import dayjs from "dayjs";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import Input from "../components/Input";
+
+import Button from "../components/Button";
 
 import { addTodo } from "../todoSlice";
 
@@ -95,7 +96,7 @@ function AddTask() {
           sx={{ mb: 3 }}
         />
 
-        <Button type="submit" variant="contained" fullWidth>
+        <Button type="submit" fullWidth>
           Add
         </Button>
       </Box>
