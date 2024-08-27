@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import dayjs from "dayjs";
 
-import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import ToggleButton from "@mui/material/ToggleButton";
@@ -14,8 +13,9 @@ import Input from "../components/Input";
 import Button from "../components/Button";
 
 import { editTodo } from "../todoSlice";
+import Modal from "../components/Modal";
 
-function EditTask() {
+function EditTaskModal() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { id } = useParams();
@@ -49,8 +49,12 @@ function EditTask() {
     navigate("/");
   }
 
+  function handleCloseModal() {
+    navigate("/");
+  }
+
   return (
-    <Container>
+    <Modal open onClose={handleCloseModal}>
       <Box
         component="form"
         noValidate
@@ -61,7 +65,7 @@ function EditTask() {
           variant="h4"
           component="h1"
           gutterBottom
-          sx={{ textAlign: "center", pt: 4 }}
+          sx={{ textAlign: "center" }}
         >
           Edit Task
         </Typography>
@@ -119,8 +123,8 @@ function EditTask() {
           EDIT
         </Button>
       </Box>
-    </Container>
+    </Modal>
   );
 }
 
-export default EditTask;
+export default EditTaskModal;
