@@ -2,10 +2,13 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 
 import TodoList from "../components/TodoList";
+import { Outlet } from "react-router-dom";
 
 function HomePage() {
   return (
     <Container>
+      <Outlet />
+
       <Typography
         variant="h4"
         component="h1"
