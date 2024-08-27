@@ -1,8 +1,9 @@
+import { Outlet } from "react-router-dom";
+
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 
 import TodoList from "../components/TodoList";
-import { Outlet } from "react-router-dom";
 
 function HomePage() {
   return (

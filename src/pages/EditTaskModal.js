@@ -21,7 +21,6 @@ function EditTaskModal() {
   const { id } = useParams();
   const todos = useSelector((state) => state.todo);
   const curTodo = todos.find((todo) => todo.id === id);
-  console.log(curTodo);
 
   const [title, setTitle] = useState(curTodo.title);
   const [description, setDescription] = useState(curTodo.details);

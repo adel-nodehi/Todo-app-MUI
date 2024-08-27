@@ -6,8 +6,8 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import Input from "../components/Input";
 
+import Input from "../components/Input";
 import Button from "../components/Button";
 
 import { addTodo } from "../todoSlice";
