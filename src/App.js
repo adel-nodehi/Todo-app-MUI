@@ -8,7 +8,7 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 
 import HomePage from "./pages/HomePage";
 import AddTask from "./pages/AddTask";
-import EditTask from "./pages/EditTask";
+import EditTaskModal from "./pages/EditTaskModal";
 import Layout from "./components/Layout";
 import NotFound from "./pages/NotFound";
 
@@ -19,9 +19,10 @@ function App() {
         <BrowserRouter>
           <Layout>
             <Routes>
-              <Route index element={<HomePage />} />
+              <Route path="/" element={<HomePage />}>
+                <Route path="/edit/:id" element={<EditTaskModal />} />
+              </Route>
               <Route path="/add" element={<AddTask />} />
-              <Route path="/edit/:id" element={<EditTask />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Layout>
